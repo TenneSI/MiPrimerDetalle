@@ -3,21 +3,58 @@
 * {
     box-sizing: border-box;
     font-family: 'Poppins', cursive;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
     min-height: 100vh;
-    background-color: black;
+    width: 100%;
+    background-color: #000;
     color: azure;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
-    padding: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ======================
+   FONDO ESTRELLADO
+   ====================== */
+.stars, .twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: #000 url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJzdGFycyIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxjaXJjbGUgY3g9IjEwIiBjeT0iMTAiIHI9IjEiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC44Ii8+PGNpcmNsZSBjeD0iNTAiIGN5PSIzMCIgcj0iMC41IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuNiIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjUwIiByPSIwLjgiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC43Ii8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMjAiIHI9IjAuNyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjYiLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjgwIiByPSIxIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuOSIvPjxjaXJjbGUgY3g9IjEyMCIgY3k9IjEyMCIgcj0iMC42IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuNSIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjQwIiByPSIwLjkiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC43Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3N0YXJzKSIvPjwvc3ZnPg==') repeat;
+    z-index: -2;
+}
+
+.twinkling {
+    background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJ0d2lua2xpbmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48Y2lyY2xlIGN4PSIyNSIgY3k9IjI1IiByPSIxIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuNCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iMjUiIHI9IjAuNSIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjMiLz48Y2lyY2xlIGN4PSIyNSIgY3k9Ijc1IiByPSIwLjgiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PGNpcmNsZSBjeD0iNzUiIGN5PSI3NSIgcj0iMC43IiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCN0d2lua2xpbmcpIi8+PC9zdmc+') repeat;
+    z-index: -1;
+    animation: twinkling 5s infinite alternate;
+}
+
+@keyframes twinkling {
+    0% { opacity: 0.1; }
+    100% { opacity: 0.5; }
+}
+
+/* Contenedor principal del contenido */
+body > *:not(.stars):not(.twinkling) {
+    position: relative;
+    z-index: 1;
 }
 
 /* ======================
@@ -28,10 +65,12 @@ body {
     font-weight: 900;
     line-height: 1;
     margin-bottom: 10px;
+    padding: 0 16px;
 }
 
 .greetings > span {
     animation: glow 2.5s ease-in-out infinite;
+    display: inline-block;
 }
 
 @keyframes glow {
@@ -58,35 +97,59 @@ body {
    ====================== */
 .description {
     font-size: clamp(1rem, 4.5vw, 1.5rem);
-    margin-bottom: 24px;
+    margin: 16px 0 32px;
     max-width: 500px;
+    padding: 0 16px;
+}
+
+.description span {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
 }
 
 /* ======================
    BOTÓN
    ====================== */
+.button {
+    margin: 20px 0;
+}
+
 .botones {
     background: none;
     border: none;
     padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.botones:hover {
+    transform: scale(1.05);
 }
 
 .botones a {
     display: inline-block;
-    background-color: #0a2be9;
+    background: linear-gradient(45deg, #0a2be9, #39c6d6);
     color: white;
     text-decoration: none;
-
-    padding: 12px 24px;
+    padding: 16px 32px;
     border-radius: 999px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(10, 43, 233, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
 
-    font-size: 1rem;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+.botones a:hover {
+    background: linear-gradient(45deg, #39c6d6, #0a2be9);
+    box-shadow: 0 6px 25px rgba(57, 198, 214, 0.6);
+    transform: translateY(-2px);
 }
 
 .botones a:active {
     transform: scale(0.95);
-    background-color: rgb(50, 194, 194);
 }
 
 /* ======================
@@ -96,6 +159,8 @@ body {
     margin-top: 40px;
     font-size: 0.8rem;
     opacity: 0.7;
+    padding: 16px;
+    text-align: center;
 }
 
 /* ======================
@@ -103,19 +168,83 @@ body {
    ====================== */
 @media (orientation: landscape) and (max-height: 500px) {
     body {
-        justify-content: center;
+        justify-content: flex-start;
+        padding-top: 20px;
     }
 
     .greetings {
         font-size: 3.5rem;
+        margin-bottom: 5px;
     }
 
     .description {
         font-size: 1rem;
-        margin-bottom: 16px;
+        margin: 10px 0 20px;
+    }
+
+    .botones a {
+        padding: 12px 24px;
     }
 
     .credits {
-        display: none;
+        margin-top: 20px;
+    }
+}
+
+/* ======================
+   RESPONSIVE PARA PANTALLAS PEQUEÑAS
+   ====================== */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 16px;
+    }
+    
+    .greetings {
+        margin-bottom: 5px;
+    }
+    
+    .description {
+        margin: 12px 0 24px;
+    }
+    
+    .botones a {
+        padding: 14px 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+    
+    .greetings {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+    
+    .description {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        margin: 10px 0 20px;
+    }
+    
+    .botones a {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    .credits {
+        margin-top: 30px;
+    }
+}
+
+/* ======================
+   PARA PANTALLAS MUY ALTAS
+   ====================== */
+@media (min-height: 800px) {
+    .button {
+        margin: 30px 0;
+    }
+    
+    .credits {
+        margin-top: 50px;
     }
 }
