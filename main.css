@@ -1709,3 +1709,139 @@ h1 {
   background-color: #FFA500; /* Un tono naranja oscuro al hacer clic */
   border-color: #FFA500;     /* Borde naranja oscuro al hacer clic */
 }
+/* ===============================
+   📱 RESPONSIVE PARA CELULAR
+   =============================== */
+@media (max-width: 768px) {
+
+  body.container {
+    overflow-x: hidden;
+    padding: 0;
+  }
+
+  /* 🔤 TÍTULO */
+  .titulo {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    padding: 0 16px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* 🌸 CONTENEDOR DE FLORES */
+  .flowers {
+    transform: scale(0.7);
+    transform-origin: bottom center;
+    width: 100%;
+    height: auto;
+  }
+
+  /* 🌙 FONDO */
+  .night {
+    height: 100vh;
+  }
+
+  /* 🎵 BOTÓN DE MÚSICA */
+  #play-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 18px;
+    font-size: 14px;
+    border-radius: 20px;
+    z-index: 1000;
+  }
+
+  /* 🎶 LETRAS (si usas lyrics luego) */
+  #lyrics,
+  #lyrics-es {
+    font-size: 0.9rem;
+    padding: 0 12px;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .flowers {
+    transform: scale(0.6);
+  }
+
+  .titulo {
+    font-size: 1rem;
+  }
+}
+/* ===============================
+   📱 RESPONSIVE – CELULAR HORIZONTAL
+   =============================== */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+
+  body.container {
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  /* 🌸 FLORES */
+  .flowers {
+    transform: scale(0.55);
+    transform-origin: bottom center;
+    position: absolute;
+    bottom: -10vh;
+    left: 50%;
+    transform: translateX(-50%) scale(0.55);
+  }
+
+  /* 🌙 FONDO */
+  .night {
+    height: 100vh;
+  }
+
+  /* 🔤 TEXTO PRINCIPAL */
+  .titulo {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    margin: 0;
+    padding: 10px 20px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 90%;
+  }
+
+  /* 🎵 BOTÓN MÚSICA */
+  #play-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
+    border-radius: 16px;
+  }
+
+  /* 🎶 LETRAS */
+  #lyrics,
+  #lyrics-es {
+    font-size: 0.8rem;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 90%;
+  }
+}
+@media screen and (orientation: portrait) and (max-width: 768px) {
+  body::before {
+    content: "Gira tu celular 💛";
+    position: fixed;
+    inset: 0;
+    background: black;
+    color: yellow;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    text-align: center;
+  }
+}
